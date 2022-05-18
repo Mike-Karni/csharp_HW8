@@ -14,6 +14,67 @@ PrintArray(array);
 Console.WriteLine();
 int minValue = MinValue(array);
 Console.WriteLine($"Минимальное значение в массиве равно {minValue}");
+int minRow = MinRow(array);
+int minCol = MinCol(array);
+
+Console.WriteLine($"Минимальный элемент находится в строке {minRow}");
+Console.WriteLine($"Минимальный элемент находится в столбце {minCol}");
+
+
+int k=0,l=0;
+
+
+    for( int i = 0; i < newArray.GetLength(0); i++)
+    {
+        l=0;
+        if(i==minRow)k++;
+        for( int j = 0; j < newArray.GetLength(1); j++)
+        {
+        if(j==minCol)l++;
+        //Console.WriteLine($"i:{i}  j:{j}  k:{k}  l:{l} "); ЛОГИРОВАНИЕ!!!
+        newArray[i,j] = array[k,l]; 
+        l++;
+        }
+        k++;
+
+    }
+
+
+
+
+    for( int i = 0; i < array.GetLength(0)-1; i++)
+    {
+     
+        for( int j = 0; j < array.GetLength(1)-1; j++)
+        {
+        Console.Write(newArray[i,j]+" ");
+
+        
+        }
+       Console.WriteLine(       );
+
+    }
+
+
+
+
+
+
+   /* for( int i = 0; i < array.GetLength(0)-1; i++)
+    {
+        for( int j = 0; j < array.GetLength(1)-1; j++)
+        {
+            while( i > minRow && j > minCol )
+            { 
+            newArray[i,j] =  array[i,j];
+            
+            }
+            Console.Write(newArray[i,j] + " ");
+        }
+        
+        Console.WriteLine(); 
+        
+    }*/
 
 
 
@@ -46,8 +107,8 @@ void FillArray(int[,] matr)
 
 int MinValue(int[,] matrix)
 {   
-    int row = 0;
-    int col = 0;
+    int minRow = 0;
+    int minCol = 0;
     int minValue = matrix[0,0];
     for (int i = 0; i <matrix.GetLength(0); i++)
     {
@@ -56,8 +117,8 @@ int MinValue(int[,] matrix)
             if (matrix[i,j] < minValue)
             {
                 minValue = matrix[i,j];
-                row = i;
-                col = j;
+                minRow = i;
+                minCol = j;
             }
         }
       
@@ -67,3 +128,48 @@ int MinValue(int[,] matrix)
     
 }
 
+int MinRow(int[,] matrix)
+{   
+    int minRow = 0;
+    int minCol = 0;
+    int minValue = matrix[0,0];
+    for (int i = 0; i <matrix.GetLength(0); i++)
+    {
+        for(int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (matrix[i,j] < minValue)
+            {
+                minValue = matrix[i,j];
+                minRow = i;
+                minCol = j;
+            }
+        }
+      
+    }
+    return minRow;
+  
+    
+}
+
+int MinCol(int[,] matrix)
+{   
+    int minRow = 0;
+    int minCol = 0;
+    int minValue = matrix[0,0];
+    for (int i = 0; i <matrix.GetLength(0); i++)
+    {
+        for(int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (matrix[i,j] < minValue)
+            {
+                minValue = matrix[i,j];
+                minRow = i;
+                minCol = j;
+            }
+        }
+      
+    }
+    return minCol;
+  
+    
+}
