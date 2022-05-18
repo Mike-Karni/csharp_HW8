@@ -30,8 +30,9 @@ void PrintArray(int[,] matr)
         {
             Console.Write($" {matr[rows, columns]} ");   
         }
-        Console.WriteLine();
+        Console.WriteLine();  
     }
+    //ADASDASDASDA
 }
 // МЕТОД ЗАПОЛНЕНИЯ МАССИВА
 void FillArray(int[,] matr) 
