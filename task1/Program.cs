@@ -19,11 +19,7 @@ int minCol = MinCol(array);
 
 Console.WriteLine($"Минимальный элемент находится в строке {minRow}");
 Console.WriteLine($"Минимальный элемент находится в столбце {minCol}");
-
-
 int k=0,l=0;
-
-
     for( int i = 0; i < newArray.GetLength(0); i++)
     {
         l=0;
@@ -39,9 +35,6 @@ int k=0,l=0;
 
     }
 
-
-
-
     for( int i = 0; i < array.GetLength(0)-1; i++)
     {
      
@@ -55,31 +48,8 @@ int k=0,l=0;
 
     }
 
-
-
-
-
-
-   /* for( int i = 0; i < array.GetLength(0)-1; i++)
-    {
-        for( int j = 0; j < array.GetLength(1)-1; j++)
-        {
-            while( i > minRow && j > minCol )
-            { 
-            newArray[i,j] =  array[i,j];
-            
-            }
-            Console.Write(newArray[i,j] + " ");
-        }
-        
-        Console.WriteLine(); 
-        
-    }*/
-
-
-
-
 //МЕТОД ПЕЧАТИ МАССИВА
+
 void PrintArray(int[,] matr) 
 {
     for (int rows = 0; rows < matr.GetLength(0); rows++)
@@ -91,7 +61,9 @@ void PrintArray(int[,] matr)
         Console.WriteLine();
     }
 }
+
 // МЕТОД ЗАПОЛНЕНИЯ МАССИВА
+
 void FillArray(int[,] matr) 
 {
     for (int rows = 0; rows < matr.GetLength(0); rows++)
@@ -104,6 +76,7 @@ void FillArray(int[,] matr)
     }
 }
 
+// Метод поиска минимального элемента
 
 int MinValue(int[,] matrix)
 {   
@@ -128,6 +101,8 @@ int MinValue(int[,] matrix)
     
 }
 
+// Метод поиска мин строки
+
 int MinRow(int[,] matrix)
 {   
     int minRow = 0;
@@ -150,6 +125,7 @@ int MinRow(int[,] matrix)
   
     
 }
+//Метод поиска строки мин элемента
 
 int MinCol(int[,] matrix)
 {   
