@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Upeco\\Desktop\\hw8\\task3\\task3.csproj",
-      "projectName": "task3",
-      "projectPath": "C:\\Users\\Upeco\\Desktop\\hw8\\task3\\task3.csproj",
+      "projectUniqueName": "C:\\Users\\Upeco\\Desktop\\hw8\\task2\\task2.csproj",
+      "projectName": "task2",
+      "projectPath": "C:\\Users\\Upeco\\Desktop\\hw8\\task2\\task2.csproj",
       "packagesPath": "C:\\Users\\Upeco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Upeco\\Desktop\\hw8\\task3\\obj\\",
+      "outputPath": "C:\\Users\\Upeco\\Desktop\\hw8\\task2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

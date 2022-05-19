@@ -1,68 +1,48 @@
-﻿//**Задача 58: ГОТОВО**Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+﻿
+/***Задача 56: ГОТОВО**
 
-Console.Write("Введите количество строк m: "); 
-int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите количество столбцов n: ");
-int n = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите количество строк o: "); 
-int o = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите количество столбцов p: ");
-int p = Convert.ToInt32(Console.ReadLine());
-int[,] array = new int[m,n];
-int[,] array1 = new int[o,p];
-
-FillArray(array);
-PrintArray(array);
-Console.WriteLine();
-FillArray(array1);
-PrintArray(array1);
-Console.WriteLine();
-int[,]r =Multiplication(array,array1);
-PrintArray(r);
+Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с 
+наименьшей суммой элементов.*/
 
 
-//МЕТОД ПЕЧАТИ МАССИВА
-void PrintArray(int[,] matr) 
-{
-    for (int rows = 0; rows < matr.GetLength(0); rows++)
-    {
-        for (int columns = 0; columns < matr.GetLength(1); columns++)
-        {
-            Console.Write($" {matr[rows, columns]} ");   
-        }
-        Console.WriteLine();  
-    }
-    //ADASDASDASDA
-}
-// МЕТОД ЗАПОЛНЕНИЯ МАССИВА
-void FillArray(int[,] matr) 
-{
-    for (int rows = 0; rows < matr.GetLength(0); rows++)
-    {
-        for (int columns = 0; columns < matr.GetLength(1); columns++)
-        {
-            matr[rows,columns] = new Random().Next(1,11); 
-        }
-        Console.WriteLine();
-    }
-}
+  
+                
+     
 
-
-
-
-  int[,] Multiplication(int[,] a, int[,] b)
-        {
-            if (a.GetLength(1) != b.GetLength(0)) throw new Exception("Матрицы нельзя перемножить");
-            int[,] r = new int[a.GetLength(0), b.GetLength(1)];
-            for (int i = 0; i < a.GetLength(0); i++)
-            {
-                for (int j = 0; j < b.GetLength(1); j++)
-                {
-                    for (int k = 0; k < b.GetLength(0); k++)
+int n1, n2;
+                int[,] A;
+     
+                Console.Write("Введите количество строк в матрице: ");
+                n1 = int.Parse(Console.ReadLine());
+                Console.Write("Введите количество столбцов в матрице: ");
+                n2 = int.Parse(Console.ReadLine());
+                A = new int[n1, n2];
+                Random rnd = new Random();
+     
+                // Присвоение значений датчиком случайных чисел
+                for (int i = 0; i < n1; i++)
+                    for (int j = 0; j < n2; j++)
+                        A[i, j] = rnd.Next(-0, 10 + 1);
+     
+                //Вывод массива
+                for (int i = 0; i < n1; i++, Console.WriteLine())
+                    for (int j = 0; j < n2; j++)
+                        Console.Write(A[i, j] + "\t");
+                    int minRowSum = int.MaxValue, indexMinRow = 0;
+     
+                 for (int i = 0; i < n1; i++)
+                 {
+                    int rowSum = 0;
+                    for (int j = 0; j < n2; j++)
+                        rowSum += A[i, j];
+                    
+                    if (rowSum < minRowSum)
                     {
-                        r[i,j] += a[i,k] * b[k,j];
+                        minRowSum = rowSum;
+                        indexMinRow = i;
                     }
-                }
-            }
-            return r;
-        }
+                 }
+     
+                 Console.WriteLine("Строка с минимальной суммой элементов");
+                     for(int j = 0;j<n2;j++)
+                          Console.Write(A[indexMinRow, j] + "\t");
