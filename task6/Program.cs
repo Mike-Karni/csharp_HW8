@@ -2,7 +2,7 @@
 
 Заполните спирально массив 4 на 4.*/
 
-int[,] snakeArray = new int[4,4];
+
 
 /*1     2   3   4
 
@@ -12,45 +12,41 @@ int[,] snakeArray = new int[4,4];
 
 10    9  8    7*/
 
-    
-int main()
+int s = 4;
+int [,] snakeArray = new int[s,s];
+int tempNumber = 1;
+int i = 0;
+int j = 0;
+while(tempNumber<=s*s)
 {
-    int a[10,10] = {0};
-    int N, M;
-
-    scanf("%d%d", &N, &M);
-    
-    int Ibeg = 0, Ifin = 0, Jbeg = 0, Jfin = 0;
-    
-    int k = 1;
-    int i = 0;
-    int j = 0;
-
-    while (k <= N * M){
-        a[i][j] = k;
-        if (i == Ibeg && j < M - Jfin - 1)
-            ++j;
-        else if (j == M - Jfin - 1 && i < N - Ifin - 1)
-            ++i;
-        else if (i == N - Ifin - 1 && j > Jbeg)
-            --j;
-        else
-            --i;
-
-        if ((i == Ibeg + 1) && (j == Jbeg) && (Jbeg != M - Jfin - 1)){
-            ++Ibeg;
-            ++Ifin;
-            ++Jbeg;
-            ++Jfin;
-        }
-        ++k;
+    snakeArray[i,j] = tempNumber;
+    tempNumber ++;
+    if (i<=j+1 && i+j<s-1)
+    {
+        j++;
     }
-    
-    for (int i = 0; i < 10; ++i){
-        for (int j = 0; j < 10; ++j)
-            printf("%3d", a[i][j]);
-        printf("\n");
+    else if(i<j && i+j>=s-1)
+    {
+        i++;
     }
-
-    return 0;
+    else if(i>=j && i+j>s-1)
+    {
+        j--;
+    }
+    else
+    {
+        i--;
+    }
 }
+void PrintArray(int[,] array)
+{
+    for(int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j]+ " ");
+        }
+        Console.WriteLine();
+    }
+}
+PrintArray(snakeArray);
